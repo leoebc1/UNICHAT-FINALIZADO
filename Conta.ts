@@ -3,8 +3,7 @@ import { Mensagem } from "./Mensagem"
 import { Notificacao } from "./Notificacao"
 import { Post } from "./Post"
 
-export class Conta {
-    private id: number 
+export class Conta { 
     private nomeUsuario: string 
     private senha: string 
     private informacaoAdicional: string 
@@ -12,9 +11,8 @@ export class Conta {
     private seguindo: Array<Conta>
     private posts: Array<Post> 
     private mensagens: Array<Mensagem>
-    private notificacoes: Array<Notificacao> // notificações recebidas, com conteúdo e ID da conta que gerou a notificação
+    private notificacoes: Array<Notificacao> 
     private foto: fotos
-    //private authService: AuthService
 
     constructor(nomeUsuario: string, senha: string, informacaoAdicional: string) {
         this.nomeUsuario = nomeUsuario 
@@ -27,7 +25,6 @@ export class Conta {
         this.notificacoes = [] 
         const randomIndex = Math.floor(Math.random() * Object.keys(fotos).length);
         this.foto = Object.values(fotos)[randomIndex];
-     //   this.authService = AuthService.getInstance()
     }
 
     public getFoto(): fotos{
@@ -101,14 +98,4 @@ export class Conta {
     public getMensagens(): Array<Mensagem>{
         return this.mensagens
     }
-/*
-    public login(): void {
-        // Gerar um token fictício
-        const token = `jwt-token-${this.nomeUsuario}`;
-
-        // Salvar o token usando AuthService
-        this.authService.login(token);
-        
-    }
-        */
 }
