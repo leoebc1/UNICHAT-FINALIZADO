@@ -1,13 +1,13 @@
 import { Rede } from "./Rede"
-import { menuInicial, menuCriarConta, mensagemContaCriada, menuLogin, mensagemNenhumaContaExistente, menuRedeSocial } from "./Menus"
+import { menuInicial, menuCriarConta, mensagemContaCriada, menuLogin, mensagemNenhumaContaExistente, menuRedeSocial, congelaTela } from "./Menus"
 import { Conta } from "./Conta"
 
 function main(){
-    const redeSocial = new Rede
+    const redeSocial = new Rede                                          //instancia o objeto do tipo Rede que sustentará a rede social
 
     let sustentaMenuInicial = true
     while(sustentaMenuInicial){
-        let opcaoMenuInicial = menuInicial()
+        let opcaoMenuInicial = menuInicial()  
         switch (opcaoMenuInicial) {
 
             //criar nova conta
@@ -32,7 +32,10 @@ function main(){
                     mensagemNenhumaContaExistente()
                 }
                 break
-            default: //opção invalida
+            default: 
+                console.clear()
+                console.log("Opção inválida")
+                congelaTela()
                 break
         }
     }
