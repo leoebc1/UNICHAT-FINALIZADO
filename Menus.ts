@@ -129,7 +129,7 @@ export function menuFeed(contaLogada: Conta, redeSocial: Rede, postASerMostrado:
         let postsOrdenados = ordenaPostsPorDataHora(buscaPostsDeSeguindo(contaLogada, redeSocial))
         let postAtual = postsOrdenados[indexPostAtual]
         let contaQuePostou: Conta
-        if(postAtual){                                                             //verifica se existe algum post a ser mostrado no feed
+        if(postAtual){                                                             //verifica se existe algum post a ser mostrado no feed. interfere no menu a ser exibido
             console.log(`
                 ********************************************************
                 *  Usuário: ${postAtual.getNomeUsuario()}
@@ -142,7 +142,7 @@ export function menuFeed(contaLogada: Conta, redeSocial: Rede, postASerMostrado:
                 ********************************************************
                 `);
                 
-                if (postAtual.getComentarios().length > 0) {
+                if (postAtual.getComentarios().length > 0) {                    //verifica se há comentários a serem exibidos no post atual
                 
                     for (let comentario of postAtual.getComentarios()) {
                         console.log(`
@@ -157,7 +157,7 @@ export function menuFeed(contaLogada: Conta, redeSocial: Rede, postASerMostrado:
                 } else {
                     console.log(`Sem comentários.`);
                 }
-            if(verificaCurtida(contaLogada, postAtual)){                            //verifica se o usuario ja curtiu este post
+            if(verificaCurtida(contaLogada, postAtual)){                            //verifica se o usuario ja curtiu este post. interfere no menu a ser exibido
                 postCurtido = true
             }
             if(!postCurtido){
